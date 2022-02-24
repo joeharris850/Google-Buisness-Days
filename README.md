@@ -1,2 +1,3 @@
-# Google-Buisness-Days
-Google formula for Business days 
+--# Google-Buisness-Days
+--Google formula for Business days 
+=IF(OR(WEEKDAY(INT(J2),2)=7,COUNTIF(‘Dates to Exclude’!B2:B7,INT(I2))=1),0,IF(‘Dates to Exclude’!B10-MOD(I2,1)<0,0,MIN('Public Holidays & work hours'!B10-MAX(MOD(I2,1),’Dates to Exclude’!B9),J2-MAX(I2,INT(I2)+’Dates to Exclude’!B9))))+IF(OR(WEEKDAY(INT(B2),2)=7,COUNTIF(‘Dates to Exclude’!B2:B7,INT(J2))=1,INT(J2)=INT(I2)),0,MAX(MIN(MOD(J2,1),’Dates to Exclude’!B10),’Dates to Exclude’!B9)-‘Dates to Exclude’!B9)+IF(INT(J2)-INT(I2)<=1,0,(INT(J2)-INT(I2)-1)*(‘Dates to Exclude’!B10-‘Dates to Exclude’!B9))-IF(INT(J2)-INT(I2)<=1,0,SUMPRODUCT(1*(WEEKDAY(ROW(INDIRECT(INT(I2)+1&":"&INT(J2)-1)),2)=7)))*(‘Dates to Exclude’!B10-‘Dates to Exclude’!B9)-IF(INT(J2)-INT(I2)<=1,0,SUMPRODUCT(1*(ISNUMBER(MATCH(ROW(INDIRECT(INT(I2)+1&":"&INT(J2)-1)),(‘Dates to Exclude’!B2:B7),0))))*(‘Dates to Exclude’!B10-‘Dates to Exclude’!B9))
